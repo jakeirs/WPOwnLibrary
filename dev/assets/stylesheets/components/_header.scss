@@ -1,0 +1,117 @@
+.bar__right--media {
+  min-width: rem-calc(450px);
+  min-width: rem-calc(470px);
+  
+  @include breakpoint(small down) {
+    min-width: initial;
+    width: 100%;
+  }
+}
+
+// TEST:
+.bar {
+  z-index: 10;
+  
+  @include breakpoint(xlarge down) {
+    padding-bottom: rem-calc(15px)!important;
+  }
+
+  &__logo {
+    max-width: rem-calc(220px);
+  }
+
+  &__nav {
+    display: inline-block;
+  }
+
+  &__row--flex {
+    display: flex;
+    width: 100%;
+
+    @include breakpoint(xlarge down) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__left--flex {
+    order: 1;
+
+    @include breakpoint(xlarge down) {
+      width: 30%;
+      margin-bottom: rem-calc(25px);
+    }
+  
+    @include breakpoint(small down) {
+      width: 100%;
+    }
+  }
+
+  &__center--flex {
+    padding-top: 5px;
+    width: 60%;
+    order: 2;
+
+    @include breakpoint(xlarge down) {
+      width: 100%;
+      order: 3;
+      text-align: right;
+      //padding-top: rem-calc(25px);
+    }
+  }
+
+  &__right--flex {
+    width: 20%;
+    order: 3;
+    text-align: right;
+    flex-grow: 99999;
+
+    @include breakpoint(xlarge down) {
+      width:70%;
+      order:2;
+    }
+    
+    @include breakpoint (medium down) {
+      padding-right: 50px;
+    }
+  
+    @include breakpoint (small down) {
+      padding-right: 0;
+    }
+    
+    &__list {
+      display: table;
+      width: 100%;
+      
+      .list_item {
+        vertical-align: middle;
+        
+        @at-root .list--social-media {
+          min-width: 120px;
+        }
+      }
+    }
+  
+    &__social-media {
+      padding-right: 15px;
+      @include breakpoint(medium down) {
+        position: absolute;
+        left: 0px;
+        top: 8px;
+      
+        ul {
+          display: flex;
+        }
+      }
+    }
+  
+    &__search-bar {
+      @include breakpoint(medium down) {
+        padding-left: 140px;
+      }
+      input {
+        color: $body-font-color!important;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,66 @@
+.listing-container {
+  
+  .article {
+    flex-wrap: nowrap;
+    
+    @include breakpoint(small down) {
+      flex-wrap: wrap;
+    }
+    
+    // space between posts
+    &:not(:first-child) {
+      margin-top: rem-calc(90px);
+      @include breakpoint(small down) {
+        margin-top: rem-calc(40px);
+      }
+    }
+    
+    &__image {
+      width: 100%;
+      
+      &-container {
+        min-width: 350px;
+        max-width: 500px;
+        width: 30%;
+        @include breakpoint(small down) {
+          width: 100%;
+          min-width: unset;
+        }
+      }
+    }
+    
+    &__title {
+      font-size: rem-calc(60px);
+      line-height: 1;
+      
+      @include breakpoint(xlarge down) {
+        font-size: rem-calc(48px);
+      }
+  
+      @include breakpoint(large down) {
+        font-size: rem-calc(32px);
+      }
+      @include breakpoint(small down) {
+        font-size: rem-calc(24px);
+      }
+    }
+    
+    section {
+      width: 70%;
+      padding-left: rem-calc(90px);
+      
+      @include breakpoint(large down) {
+        padding-left: rem-calc(30px);
+      }
+  
+      @include breakpoint(small down) {
+        width: 100%;
+        padding-left: unset;
+      }
+    }
+  }
+}
+
+.listing {
+
+}

@@ -1,0 +1,62 @@
+include ../views/pug/_mixins
+
+header
+
+  #bar-top.bar.padding--default.shadow--middle
+    .bar__row--flex.position--relative
+
+      .bar__left--flex.text-center
+        a.float-left.bar__brand(href!="<?php echo( get_home_url() ); ?>" title="Strona główna")
+          img.bar__logo(src!="<?php echo get_bloginfo('template_directory'); ?>/assets/images/sequencesh_logo_2.jpg" alt="Alternative text")
+
+      .bar__center--flex.text-center
+
+        nav.nav.nav--inline.padding--small-tiny-right#nav-main(data-toggler="is-active" role="navigation")
+          .
+            <?php
+            wp_nav_menu(array(
+            'theme_location'     => 'primary-menu',
+            'container'          =>  false,
+            'menu_class'         =>  'nav__list menu',
+            'walker'             =>  new SSH_Walker_Nav_Menu_Primary()
+            ));
+            ?>
+
+        nav.nav.nav--inline.padding--small-tiny-right#nav-main-hamburger(data-toggler="is-active" role="navigation")
+          .
+            <?php
+            wp_nav_menu(array(
+            'theme_location'     => 'primary-menu',
+            'container'          =>  false,
+            'menu_class'         =>  'nav__list menu nav__list--hamburger padding--default menu--scrollable',
+            'walker'             =>  new SSH_Walker_Nav_Menu_Primary()
+            ));
+            ?>
+
+        button.hamburger.hamburger--collapse.hide-for-large.toggler#hamburger(type="button" data-toggle="hamburger nav-main-hamburger" data-toggler="is-active")
+          span.hamburger-box
+            span.hamburger-inner
+
+
+      .bar__right--flex.bar__right--media.position--relative
+        ul.bar__right--flex__list.list--reset.list--inline.list--margin-large
+          li.list__item.bar__right--flex__social-media
+            ul.list--social-media.list--reset.list--inline.list--margin-tiny
+              +phpIf( "get_option('facebook')" )
+                li.list__item
+                  a(href!="<?php echo get_option('facebook'); ?>"  title="Facebook" target="_blank")
+                    span.icon--facebook-logo-monochrome.icon--default.icon--color-facebook
+              +phpIf( "get_option('twitter')" )
+                li.list__item
+                  a(href!="<?php echo get_option('twitter'); ?>" title="Twitter" target="_blank")
+                    span.icon--twitter-logo-monochrome.icon--default.icon--color-twitter
+              +phpIf( "get_option('google_plus')" )
+                li.list__item
+                  a(href!="<?php echo get_option('google_plus'); ?>" title="Google+" target="_blank")
+                    span.icon--googleplus-logo-monochrome.icon--default.icon--color-google-plus
+              +phpIf( "get_option('linkedIn')" )
+                li.list__item
+                  a(href!="<?php echo get_option('linkedIn'); ?>" title="LinkedIn" target="_blank")
+                    span.icon--linkedin-logo-monochrome.icon--default.icon--color-linkedin
+          li.list__item.bar__right--flex__search-bar
+            +php("get_search_form()")

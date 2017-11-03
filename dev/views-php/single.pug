@@ -1,0 +1,45 @@
+include ../views/pug/_mixins
+
+doctype html
+html.no-js
+  head
+    include head
+  body
+    include header-subpage
+
+    main.padding--medium-huge-top.padding--small-large-top-down.padding--large-large-left.padding--large-large-right.padding--small-small-left.padding--small-small-right
+
+      .breadcrumbs.margin--large-large-bottom.margin--medium-default-bottom-down
+        +phpEcho( "custom_breadcrumbs()" )
+
+      +php( "global $post" )
+      article.single-post.margin--large-large-bottom.margin--medium-default-bottom-down
+        +phpIf( "get_the_post_thumbnail()" )
+          .single-post__img-container.margin--small-default-bottom
+            img.single-post__img( src!="<?php echo get_the_post_thumbnail_url(); ?>" title!="<?php the_title(); ?>"  alt!="<?php the_title(); ?>")
+        section
+          h1.sigle-post__title.text--300.margin--small-tiny-bottom( title!="<?php the_title(); ?>" )
+            +php( "the_title()" )
+          ul.article__details.list--reset.text--grey
+            li.list__item
+              strong dodano&nbsp;
+              time( datetime="<?php echo get_the_date(); ?>" )
+                strong
+                  +phpEcho( "get_the_date()" )
+            +phpIf( "$post_tags = get_the_tags()" )
+              li.list__item
+                +phpForeach("$post_tags as $tag")
+                  a.single-post__anchor-tag(href!="<?php echo get_tag_link($tag->term_id); ?>" title!="<?php echo $tag->name; ?>")
+                    strong
+                      +php("$tag_name = $tag->name . ' '")
+                      +phpEcho("$tag_name")
+          .generated-content
+            .
+              <?php
+                add_filter('the_content', 'nl2br');
+                echo apply_filters('the_content', $post->post_content) ;
+
+              ?>
+      .comment__box.margin--large-large-bottom.margin--medium-default-bottom-down( style="max-width: 820px;" )
+        +php("comments_template()")
+    +php("get_footer()")

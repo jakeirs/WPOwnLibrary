@@ -1,0 +1,8 @@
+
+.pagination {
+  text-align: left;
+  & > li {
+    margin-right: 4px;
+    text-align: center;
+  }
+}

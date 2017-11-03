@@ -1,0 +1,41 @@
+.section {
+  
+  &--offers {
+    padding: rem-calc(120px) rem-calc(70px);
+  }
+  
+  &--team {
+    padding-top: rem-calc(100px);
+    padding-bottom: rem-calc(40px);
+    @include breakpoint(small down) {
+      padding-top: rem-calc(80px);
+      padding-bottom: rem-calc(80px);
+    }
+  }
+  
+  &--blog {
+    padding: rem-calc(170px) 0;
+  }
+  
+  &__divider {
+    position: relative;
+    width: 5%; // min. width for divider to show up
+    
+    &:before {
+      content: '';
+      
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      
+      width: 1px;
+      height: 100%;
+      margin: auto;
+      
+      background: $grey-light;
+    }
+  }
+  
+}

@@ -1,0 +1,139 @@
+$module: 'nav';
+
+.#{$module} {
+  @include breakpoint(medium down) {
+
+    &.is-active {
+      & > .#{$module}__list {
+        transform: translateX(0);
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+}
+
+#nav-main-hamburger {
+  display: none;
+  @include breakpoint(medium down) {
+    display: block;
+  }
+  .nav__item--has-children {
+
+    &:hover > .submenu {
+      display: none;
+    }
+  }
+}
+
+#nav-main {
+  display: inline-block;
+  @include breakpoint(medium down) {
+    display: none;
+  }
+}
+
+.#{$module} {
+
+  & > .#{$module}__list {
+    
+    @include breakpoint(medium down) {
+      position: fixed;
+      top: 0;
+      right: 0;
+      z-index: 14;
+
+      width: 0;
+      height: 100vh;
+      background: $white;
+
+      opacity: 0;
+      visibility: hidden;
+
+      padding: rem-calc(100px) 0;
+
+      transform: translateX(100%);
+      transition: all .35s;
+    }
+  }
+
+  @at-root .#{$module}__item {
+
+    @include breakpoint(medium down) {
+      display: block !important;
+      margin-right: 0!important;
+      text-align: center;
+
+      .#{$module}__link {
+        font-size: 24px;
+        line-height: 48px;
+
+      }
+    }
+  }
+}
+
+.submenu {
+
+  @include breakpoint(medium down) {
+    position: static!important;
+  }
+
+  .#{$module}__item {
+
+    &:first-child {
+      .#{$module}__link {
+        @include breakpoint(medium down) {
+          padding-top: 40px!important;
+        }
+      }
+    }
+
+    .#{$module}__link {
+      text-align: left;
+
+
+      @include breakpoint(medium down) {
+        padding: rem-calc(15px) rem-calc(20px)!important;
+        text-align: center;
+        font-size: 28px;
+        //background: $blue-darker!important;
+        //color: $white!important;
+        line-height: 1.1;
+      }
+
+      &:hover {
+        @include breakpoint(medium down) {
+          //background: $font-color-anchor!important;
+        }
+      }
+    }
+  }
+
+
+
+  @at-root .nav__list--arrow:before {
+    @include breakpoint(medium down) {
+      content: none;
+    }
+  }
+}
+
+.menu.vertical {
+  & > li {
+    display: block;
+  }
+}
+
+.menu a{
+  white-space: normal;
+}
+
+.menu--scrollable {
+  @include breakpoint(medium down) {
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+}

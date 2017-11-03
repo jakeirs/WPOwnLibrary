@@ -1,0 +1,54 @@
+// font colors:
+$body-font-color: #262626;
+$font-color-light: #929292;
+$font-family-serif: Playfair Display, serif;
+$font-family-sans-serif: Roboto, Helvetica, Arial, sans-serif;
+
+
+body {
+  color: $body-font-color;
+  text-rendering: optimizeLegibility;
+  font-size: 1rem;
+}
+
+.header {
+  color: $body-font-color;
+  
+  &--large {
+    @include breakpoint(small down) {
+      font-size: 60px;
+      line-height: 60px;
+    }
+  }
+  
+  &--medium {
+    @include breakpoint(small down) {
+      font-size: 36px;
+      line-height: 40px;
+    }
+  }
+}
+
+.text {
+  &--leading {
+    line-height: 1.8;
+    margin-bottom: 0;
+  }
+  
+  &--grey {
+    color: $font-color-light!important;
+  }
+  
+  &--featured {
+    font-size: rem-calc(18px);
+    line-height: 1.6;
+  }
+  
+}
+
+p.text--leading {
+  line-height: 1.8;
+  margin-bottom: 0;
+}
+
+

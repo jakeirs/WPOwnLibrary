@@ -1,0 +1,33 @@
+$breakpoint-tiny: 440px;
+
+.button.hollow-border {
+
+  @include breakpoint($breakpoint-tiny down) {
+    margin-left: 0!important;
+    margin-top: rem-calc(40px);
+  }
+}
+
+.button {
+  &.hollow-border {
+    border: 1px solid;
+  }
+}
+
+
+.buttons-container {
+  margin-right: 0;
+  margin-left: 0;
+  
+  @include breakpoint(small down) {
+    text-align: center;
+  }
+
+  @at-root .column--button {
+    display: inline-block;
+
+    @include breakpoint($breakpoint-tiny down) {
+      display: block;
+    }
+  }
+}

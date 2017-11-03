@@ -1,0 +1,85 @@
+include pug/_mixins
+
+html.no-js
+  head
+    include head
+  body
+    include header-subpage
+
+    main.padding--medium-huge-top.padding--small-large-top-down.padding--large-large-left.padding--large-large-right.padding--small-small-left.padding--small-small-right
+
+      .bar-tabs
+        .bar-tabs__carousel#carousel--bar-tabs
+          .bar-tabs__item.bar-tabs__item--is-active Najnowsze
+          .bar-tabs__item Popularne
+          .bar-tabs__item Najczęściej komentowane
+        hr.margin--medium-large-bottom.margin--small-default-bottom-down.margin--medium-default-bottom
+
+      .listing-container.margin--medium-huge-bottom.margin--small-default-bottom-down
+        article.article.flex
+          a.article__image-container.article__anchor( href!="" title!="")
+            img.article__image( src!="assets/images/article_image_1.jpg" alt!="" )
+          section
+            a.article__anchor( href!="" title!="" )
+              .article__title.text--featured.text--300 Dziesięć powodów dla których powinienieś używać porównywarki walut
+            ul.article__details.list--reset.text--grey
+              li.list__item
+                strong dodano&nbsp;
+                time
+                  strong 03-05-2016
+              li.list__item
+                a(href!="" title!="")
+                  strong porównywarki, finanse, aktualności, ogłoszenia
+
+        article.article.flex
+          a.article__image-container.article__anchor( href!="" title!="")
+            img.article__image( src!="assets/images/article_image_1.jpg" alt!="" )
+          section
+            a.article__anchor( href!="" title!="" )
+              .article__title.text--featured.text--300 Dziesięć powodów dla których powinienieś używać porównywarki walut
+            ul.article__details.list--reset.text--grey
+              li.list__item
+                strong dodano&nbsp;
+                time
+                  strong 03-05-2016
+              li.list__item
+                a(href!="" title!="")
+                  strong porównywarki, finanse, aktualności, ogłoszenia
+
+      .pagination-container.margin--small-default-bottom-down.margin--medium-huge-bottom
+        ul.pagination.text--left(role="navigation" aria-label="Pagination")
+          li.pagination-first.disabled
+            a.pagination-item(href="#" aria-label="First")
+              | <<&nbsp;
+              span.show-for-sr first page
+          li.pagination-previous.disabled
+            a.pagination-item(href="#" aria-label="Prev")
+              | prev&nbsp;
+              span.show-for-sr page
+          li.current
+            span.pagination-item
+              span.show-for-sr page:&nbsp;
+              | 1
+          li
+            a.pagination-item(href="#" aria-label="Strona 2") 2
+          li
+            a.pagination-item(href="#" aria-label="Strona 3") 3
+          li
+            a.pagination-item(href="#" aria-label="Strona 4") 4
+          li
+            a.pagination-item(href="#" aria-label="Strona 5") 5
+          li
+            a.pagination-item(href="#" aria-label="Strona 6") 6
+          li
+            a.pagination-item(href="#" aria-label="Strona 7") 7
+          li.pagination-next
+            a.pagination-item(href="#" aria-label="Next")
+              | next&nbsp;
+              span.show-for-sr page
+          li.pagination-last
+            a.pagination-item(href="#" aria-label="Last")
+              | >>&nbsp;
+              span.show-for-sr last page
+
+
+    include footer.pug

@@ -1,0 +1,169 @@
+include pug/_mixins
+
+header.position--small-viewport
+
+  #bar-top.bar.padding--default
+    .bar__row--flex.position--relative
+
+      .bar__left--flex.text-center
+        a.float-left.bar__brand(href="/" title="Strona główna")
+          img.bar__logo(src="assets/images/sequencesh_logo_2.jpg" alt="Alternative text")
+
+      .bar__center--flex.text-center
+        +nav({
+            inline: true,
+            subMenuArrow: true
+        }, [
+            {
+                href: '#',
+                label: 'Menu Item 01'
+            },
+            {
+                href: '#',
+                label: 'Menu Item 02'
+            },
+            {
+                href: '#',
+                label: 'Menu Item 03',
+                children: [
+                    {
+                        href: '#',
+                        label: 'Menu Item 03.1'
+                    },
+                    {
+                        href: '#',
+                        label: 'Menu Item 03.2'
+                    },
+                    {
+                        href: '#',
+                        label: 'Menu Item 03.3',
+                        children: [
+                            {
+                                href: '#',
+                                label: 'Menu Item 03.3.1'
+                            },
+                            {
+                                href: '#',
+                                label: 'Menu Item 03.3.2'
+                            },
+                            {
+                                href: '#',
+                                label: 'Menu Item 03.3.3'
+                            },
+                            {
+                                href: '#',
+                                label: 'Menu Item 03.3.4'
+                            }
+                        ]
+                    },
+                    {
+                        href: '#',
+                        label: 'Menu Item 03.4'
+                    }
+                ]
+            },
+            {
+                href: '#',
+                label: 'Menu Item 04'
+            },
+            {
+                href: '#',
+                label: 'Menu Item 05'
+            }
+        ]).margin--small-small-left
+
+        nav.nav.nav--inline.padding--small-tiny-right#nav-main-hamburger(data-toggler="is-active" role="navigation")
+          ul.nav__list.nav__list--hamburger.menu( role="menubar").js-scrollbar
+            li.nav__item(role="menuitem")
+              a.nav__link(href="#" title="Menu Item 01") Menu Item 01
+            li.nav__item(role="menuitem")
+              a.nav__link(href="#" title="Menu Item 02") Menu Item 02
+            li.nav__item.has-submenu.nav__item--has-children(role="menuitem")
+              a.nav__link(href="#" title="Menu Item 03") Menu Item 03
+              ul.nav__list.menu.vertical.submenu.nav__list--arrow(role="menu")
+                li.nav__item(role="menuitem")
+                  a.nav__link(href="#" title="Menu Item 03.1") Menu Item 03.1 Poalsad as
+                li.nav__item(role="menuitem")
+                  a.nav__link(href="#" title="Menu Item 03.1") Menu Item 03.1 P
+                li.nav__item(role="menuitem")
+                  a.nav__link(href="#" title="Menu Item 03.1") Menu Item 03.1 P
+            li.nav__item(role="menuitem")
+              a.nav__link(href="#" title="Menu Item 02") Menu Item 02
+            li.nav__item.has-submenu.nav__item--has-children(role="menuitem")
+              a.nav__link(href="#" title="Menu Item 03") Menu Item 03
+              ul.nav__list.menu.vertical.submenu.nav__list--arrow(role="menu")
+                li.nav__item(role="menuitem")
+                  a.nav__link(href="#" title="Menu Item 03.1") Menu Item 03.1 Poalsad as
+                li.nav__item(role="menuitem")
+                  a.nav__link(href="#" title="Menu Item 03.1") Menu Item 03.1 P
+                li.nav__item(role="menuitem")
+                  a.nav__link(href="#" title="Menu Item 03.1") Menu Item 03.1 P
+
+        button.hamburger.hamburger--collapse.hide-for-large.toggler#hamburger(type="button" data-toggle="hamburger nav-main-hamburger" data-toggler="is-active")
+          span.hamburger-box
+            span.hamburger-inner
+
+      .bar__right--flex.bar__right--media.position--relative
+        ul.bar__right--flex__list.list--reset.list--inline.list--margin-large
+          li.list__item.bar__right--flex__social-media
+            ul.list--social-media.list--reset.list--inline.list--margin-tiny
+              li.list__item
+                a(href="#" title="Facebook" target="_blank")
+                  span.icon--facebook-logo-monochrome.icon--default.icon--color-facebook
+              li.list__item
+                a(href="#" title="Twitter" target="_blank")
+                  span.icon--twitter-logo-monochrome.icon--default.icon--color-twitter
+              li.list__item
+                a(href="#" title="Google+" target="_blank")
+                  span.icon--googleplus-logo-monochrome.icon--default.icon--color-google-plus
+              li.list__item
+                a(href="#" title="LinkedIn" target="_blank")
+                  span.icon--linkedin-logo-monochrome.icon--default.icon--color-linkedin
+          li.list__item.bar__right--flex__search-bar
+            form.form.form--inline(name="search" id="searchForm" method="POST" action="/search" novalidate)
+              fieldset.form__content
+                .row.form__row
+                  .form__group
+                    +input({
+                        name: 'q',
+                        size: 'default',
+                        icon: 'search',
+                        iconAlign: 'right',
+                        iconSubmit: true,
+                        type: 'search',
+                        placeholder: 'Search..',
+                        error: '',
+                        labelClass: 'label--icon-white',
+                        required: false,
+                        border: true,
+                        rounded: true,
+                        collapse: true,
+                        id: 'search'
+                    }).input--transparent.text--white.input--text-white
+
+
+
+  +pageHeader({
+      bgSrc: 'assets/images/mockup-popup__backgroud-1.jpg'
+  }).page-header--adjusted.page-header--nav.jarallax
+    .header--large.text--serif.text--900 Sequence
+    .header.header--medium.text--300.padding--small-tiny-top Tech and IT solutions
+    .buttons-container.row.margin--small-small-top
+      .column--button
+        +button({
+            style: 'primary',
+            title: 'Dowiedz się więcej',
+            label: 'Dowiedz się więcej',
+            rounded: true
+        })
+      .column--button.margin--medium-default-bottom-down
+        +button({
+            style: 'transparent',
+            title: 'Kup teraz',
+            label: 'Kup teraz',
+            rounded: true
+        }).hollow-border.margin--medium-small-left.margin--small-tiny-left
+
+
+
+

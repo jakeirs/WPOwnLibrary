@@ -1,0 +1,52 @@
+.container-articles {
+
+  //articles display in horizontal way
+  &--horizontal {
+    @include breakpoint(xlarge down) {
+      margin-top: 60px;
+    }
+  
+    @include breakpoint(small down) {
+      margin-top: 0;
+    }
+    //width: 32.5%; // changed in order to divider shows up
+
+    .article {
+
+      &__image {
+        object-fit: cover;
+        height: 275px;
+        max-width: 207px;
+
+        @include breakpoint(small down) {
+          max-width: 100%;
+          height: auto;
+        }
+        
+        &-container {
+          width: initial;
+          display: inline-block;
+        }
+      }
+
+      &__body {
+        padding-top: 0;
+        
+        @include breakpoint(small down) {
+          padding-top: 20px;
+          padding-left: 0;
+          width: 100%;
+        }
+      }
+    }
+
+
+    .button {
+      margin-top: 20px;
+    }
+  }
+}
+
+.section__divider {
+  width: 4%;
+}

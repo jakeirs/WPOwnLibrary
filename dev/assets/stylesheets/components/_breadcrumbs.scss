@@ -1,0 +1,27 @@
+#breadcrumbs{
+  display: inline-block;
+  padding-left: 0;
+  margin-left: 0;
+  list-style:none;
+  font-size: 14px;
+
+  a {
+    color: $body-font-color;
+  }
+
+  li {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 2px;
+  }
+
+  .item-current {
+    text-decoration: underline;
+  }
+
+  .separator{
+    font-size: 18px;
+    font-weight: 100;
+    color: #ccc;
+  }
+}

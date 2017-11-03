@@ -1,0 +1,106 @@
+.carousel {
+
+  &--container {
+    max-width: rem-calc(1500px);
+    margin-right: auto;
+    margin-left: auto;
+    color: $color-gray!important;
+    display: flex;
+  }
+
+  &--team {
+    max-width: rem-calc(1025px);
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  &__item {
+    cursor: pointer;
+  }
+
+  &__img {
+    border-radius: 50%;
+    height: 128px;
+    width: 128px;
+    object-fit: cover;
+  }
+
+  &__title {
+    margin-top: rem-calc(25px);
+    padding-bottom: rem-calc(10px);
+    font-weight: 600;
+  }
+
+  &__subtitle{
+    padding-bottom: rem-calc(15px);
+  }
+
+  &__media {
+
+  }
+}
+
+.list__item--media-carousel {
+  &:not(:last-child) {
+    margin-right: rem-calc(5px)!important;
+  }
+}
+
+#prev,
+#next {
+  position: static;
+  transform: translateY(0);
+  overflow: initial;
+  font-size: 180px;
+  width: initial;
+  height: initial;
+
+  @include breakpoint(medium down) {
+    font-size: 80px;
+  }
+
+  &::before {
+    color: $color-gray!important;
+  }
+}
+
+#next {
+  right: -18%;
+}
+
+#prev {
+  left: -18%;
+}
+
+
+#carousel--mockup {
+  .slick-dots {
+    left: 23%;
+    bottom: 27%;
+  
+    button {
+      color: white;
+      background-color: white;
+    }
+  
+    .slick-active {
+      button {
+        color: #00a6eb;
+        background-color: #00a6eb;
+      }
+    }
+  
+    @include breakpoint(xlarge down) {
+      left: 24%;
+    }
+  
+    @include breakpoint(large down) {
+      left: 25%;
+    }
+    
+    @include breakpoint(medium down) {
+      left: 50%;
+      bottom: 5%;
+    }
+  }
+}

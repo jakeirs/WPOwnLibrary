@@ -1,0 +1,69 @@
+include ../views/pug/_mixins
+
+doctype html
+
+html.no-js
+  head
+    include head.pug
+  body
+    include header-subpage
+
+    main.padding--medium-huge-top.padding--small-large-top-down.padding--large-large-left.padding--large-large-right.padding--small-small-left.padding--small-small-right
+
+      .bar-tabs
+        .
+          <?php
+            wp_nav_menu(array(
+            'theme_location'     => 'categories-tabs',
+            'container'          =>  false,
+            'menu_class'         =>  'bar-tabs__carousel',
+            'menu_id'            =>  'carousel--bar-tabs',
+            'walker'             =>  new SSH_Walker_Nav_Category_Tabs()
+            ));
+          ?>
+        hr.margin--medium-large-bottom.margin--small-default-bottom-down.margin--medium-default-bottom
+      .
+        <?php
+          $queried_object = get_queried_object();
+        ?>
+
+      +phpIf( "$queried_object->taxonomy == 'post_tag'" )
+        .header--medium.text--300.margin--medium-huge-bottom.margin--small-default-bottom-down
+          +php( "the_archive_title( ' ' )" )
+      +phpIf( "have_posts()" )
+        .listing-container.margin--medium-huge-bottom.margin--small-default-bottom-down
+          +phpWhile( "have_posts()" )
+            +php( "the_post()" )
+
+            article.article.flex
+              a.article__image-container.article__anchor( href!="<?php echo get_permalink(); ?>" title!="<?php the_title(); ?>" )
+                +phpIf( "get_the_post_thumbnail()" )
+                  img.article__image( src!="<?php echo get_the_post_thumbnail_url(); ?>" alt!="<?php the_title(); ?>" )
+              section
+                a.article__anchor( href!="<?php echo get_permalink(); ?>" title!="<?php the_title(); ?>" )
+                  .article__title.text--featured.text--300
+                    +php( "the_title()" )
+                ul.article__details.list--reset.text--grey
+                  li.list__item
+                    strong dodano&nbsp;
+                    time( datetime="<?php echo get_the_date(); ?>" )
+                      strong
+                        +phpEcho( "get_the_date()" )
+                  li.list__item
+                    +phpIf( "$post_tags = get_the_tags()" )
+                      +phpForeach("$post_tags as $tag")
+                        a(href!="<?php echo get_tag_link($tag->term_id); ?>" title!="<?php echo $tag->name; ?>")
+                          strong
+                            +php("$tag_name = $tag->name . ' '")
+                            +phpEcho("$tag_name")
+
+            +php( 'wp_reset_postdata()' )
+
+
+
+      .pagination-bar.margin--small-default-bottom-down.margin--medium-huge-bottom
+        ul.pagination(role="navigation" aria-label="Pagination")
+          +phpEcho("new Numeric_Pagination()")
+
+
+    +php("get_footer()")

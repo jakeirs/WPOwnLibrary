@@ -1,0 +1,26 @@
+.offer-card {
+  max-width: rem-calc(450px);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  &__picture {
+    margin: auto;
+    svg {
+      @include breakpoint(small down) {
+        width: 100%;
+      }
+    }
+    img {
+      height: 300px;
+    }
+  }
+
+  &__title {
+    font-size: rem-calc(24px);
+    line-height: 1.2;
+  }
+
+  &__feature-text {
+    line-height: 1.6;
+  }
+}

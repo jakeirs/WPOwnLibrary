@@ -1,0 +1,48 @@
+.footer {
+  background-color: $color-footer;
+  padding-top: rem-calc(20px);
+  padding-bottom: rem-calc(20px);
+
+  @include breakpoint(small down) {
+    padding-top: rem-calc(35px);
+    padding-bottom: rem-calc(35px);
+  }
+}
+
+.text--nav-color {
+  color: $color-gray;
+}
+
+.icon--facebook {
+  width: 20px;
+  height: 20px;
+}
+
+.bar {
+
+  &__right {
+    &--footer {
+      min-width: 320px;
+      @include breakpoint(medium down) {
+        display: block;
+        text-align: center;
+      }
+    }
+  }
+
+  &__left{
+    &--footer {
+      @include breakpoint(medium down) {
+        display: block;
+        display: none;
+        text-align: center;
+      }
+
+      @include breakpoint(small down) {
+        .nav__item {
+          display: block;
+        }
+      }
+    }
+  }
+}

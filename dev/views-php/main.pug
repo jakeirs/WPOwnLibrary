@@ -1,0 +1,277 @@
+include ../views/pug/_mixins
+
+section.section--offers.text--center#to-awesome
+  .row.expanded.text--center
+    .header--medium.text--300.text--center
+      +php( "the_field( 'features_header' )" )
+    .margin--medium-default-bottom.margin--small-tiny-bottom-down
+      .
+        <?php
+          $args = array(
+            'post_type' => 'our_offer',
+            'posts_per_page'    => 3,
+          );
+          $the_query = new WP_Query( $args );
+        ?>
+      +phpIf( "$the_query->have_posts()" )
+        .row.expanded.margin--small-large-top
+          +phpWhile( "$the_query->have_posts()" )
+            +php( "$the_query->the_post()" )
+            .columns.large-8
+              .offer-card.margin--small-default-bottom
+                .offer-card__picture
+                  figure.effect-apollo
+                    img(src!="<?php echo get_field( 'our_offer_svg2' )['url']; ?>" alt=!"<?php the_field( 'our_offer_title2' ); ?>" title=!"<?php the_field( 'our_offer_title2' ); ?>")
+                    figcaption
+                .offer-card__title.padding--small-tiny-top
+                  +php( "the_field( 'our_offer_title2' )" )
+                .offer-card__feature-text.padding--small-small-top
+                  +php( "the_field( 'our_offer_description2' )" )
+
+          +php( "wp_reset_postdata()" )
+      .
+        <?php
+
+        $args = array(
+          'post_type' => 'our_offer',
+          'posts_per_page'    =>  3,
+          'offset'    =>  3,
+        );
+        $the_query = new WP_Query( $args );
+
+        ?>
+
+      +phpIf( "$the_query->have_posts()" )
+        .row.expanded.padding--small-huge-top#slide-container.hide--initially
+          +phpWhile( "$the_query->have_posts()" )
+            +php( "$the_query->the_post()" )
+            .columns.large-8
+              .offer-card.margin--small-default-bottom
+                .offer-card__picture
+                  figure.effect-apollo
+                    img(src!="<?php echo get_field( 'our_offer_svg2' )['url']; ?>" alt=!"<?php the_field( 'our_offer_title2' ); ?>" title=!"<?php the_field( 'our_offer_title2' ); ?>")
+                    figcaption
+                .offer-card__title.padding--small-tiny-top
+                  +php( "the_field( 'our_offer_title2' )" )
+                .offer-card__feature-text.padding--small-small-top
+                  +php( "the_field( 'our_offer_description2' )" )
+    +phpIf( "$the_query->have_posts()" )
+      +button({
+          title: 'Więcej',
+          label: 'Więcej',
+          rounded: true
+      })#slide-activator
+      +php(" wp_reset_postdata() ")
+
+.
+  <?php
+
+  $args = array(
+    'post_type' => 'home_page_content',
+    'posts_per_page'    => 1,
+  );
+
+  $the_query = new WP_Query( $args );
+
+  ?>
+
++php( "$the_query->the_post()" )
+
+section.section--feature.section--padding.position--relative
+  .flex.flex--section-feature.flex--featured
+    .columns.large-10.flex.flex--center-vertically.padding--small
+      .feature__description
+        .header--medium.text--300
+          +php( "the_field( 'third_title' )" )
+        .text--featured.margin--small-default-top
+          +php( "the_field( 'third_feature_text' )" )
+        .text--featured.hide--initially#slide-container--features
+          +php( "the_field( 'third_feature_additional_text' )" )
+        +button({
+            style: 'primary',
+            title: 'Więcej',
+            label: 'Więcej',
+            rounded: true
+        }).margin--small-default-top#slide-activator--features
+    .columns.large-14.padding--small.flex.flex--center-vertically
+      img.feature__img( src!="<?php echo get_field( 'third_background2' )['url'];  ?>" alt="<?php the_field( 'third_title' ); ?>" title="<?php the_field( 'third_title' ); ?>")
+
+.
+  <?php
+
+  $args = array(
+  'post_type' => 'home_page_content',
+  'posts_per_page'    => 1,
+  );
+
+  $the_query = new WP_Query( $args );
+  ?>
++php( "$the_query->the_post()" )
+
+section.section--team.text--center.position--relative
+  .row.row--wrapper
+    .header--small.text--300.text--center
+      +php( "the_field( 'fourth_title' )" )
+    p.text--leading.margin--small-small-top
+      +php( "the_field( 'fourth_feature_text')" )
+  .
+    <?php
+
+    $args = array(
+    'post_type' => 'team',
+    );
+
+    $the_query = new WP_Query( $args );
+    ?>
+
+  +phpIf( "$the_query->have_posts()" )
+    .carousel--container.margin--small-large-top.position--relative
+      span.icon--keyboard-arrow-left#prev
+      .carousel.carousel--team#carousel--team
+        +phpWhile( "$the_query->have_posts()" )
+          +php( "$the_query->the_post()" )
+          .carousel__item
+            img.carousel__img( src!="<?php echo get_the_post_thumbnail_url(); ?>" alt!="<?php the_title(); ?>" )
+            .carousel__title( title!="<?php the_title(); ?>" )
+              +php( "the_title()" )
+            .carousel__subtitle( title!="<?php the_field( 'role' ); ?>" data-bio!="<?php the_content(); ?>" )
+              +php( "the_field( 'role' )" )
+            .carousel__media
+              ul.list.list--reset.list--inline.list--margin
+                +phpIf( "get_field( 'team_member_facebook' )" )
+                  li.list__item.list__item--media-carousel
+                    a(href!="<?php echo get_field( 'team_member_facebook' ); ?>" title="Facebook" target="_blank")
+                      span.icon--facebook-logo-monochrome.icon--default.icon--color-facebook
+                +phpIf( "get_field( 'team_member_twitter' )" )
+                  li.list__item.list__item--media-carousel
+                    a(href!="<?php echo get_field( 'team_member_twitter' ); ?>" title="Twitter" target="_blank")
+                      span.icon--twitter-logo-monochrome.icon--default.icon--color-twitter
+                +phpIf( "get_field( 'team_member_linkedin' )" )
+                  li.list__item.list__item--media-carousel
+                    a(href!="<?php echo get_field( 'team_member_linkedin' ); ?>" title="LinkedIn" target="_blank")
+                      span.icon--linkedin-logo-monochrome.icon--default.icon--color-linkedin
+        +php(" wp_reset_postdata() ")
+      span.icon--keyboard-arrow-right#next
+    include template-partial/teamPopup
+
+
+// Blog Section
+.
+  <?php
+
+  $args = array(
+  'post_type' => 'home_page_content',
+  'posts_per_page'    => 1,
+  );
+
+  $the_query = new WP_Query( $args );
+  ?>
+
++php( "$the_query->the_post()" )
+
+section.section--blog
+  .row.row--wrapper
+    .header--small.text--300.text--center
+      +php( "the_field( 'blog_section_title' )" )
+    p.text--leading.text--center.margin--small-small-top
+      +php( "the_field( 'blog_section_feature_text' )" )
+  .row.expanded.padding--small-huge-top
+    .
+      <?php
+
+      $args = array(
+      'posts_per_page'    => $post_per_page_value = 3,
+      );
+
+      $the_query = new WP_Query( $args );
+
+      ?>
+
+    +phpIf( "$the_query->have_posts()" )
+      .columns.xxlarge-15.xlarge-24
+        +phpWhile( "$the_query->have_posts()" )
+          +php( "$the_query->the_post()" )
+          .columns.medium-8
+
+            article.article.margin--small-default-bottom-down
+              +phpIf( "get_the_post_thumbnail()" )
+                a.article__image-container.article__anchor( href!="<?php echo get_permalink(); ?>" title!="<?php the_title(); ?>")
+                  img.article__image( src!="<?php echo get_the_post_thumbnail_url(); ?>" alt!="<?php the_title(); ?>" )
+              section
+                .article__share
+                  +php( "the_share_buttons()" )
+                  a.article__comment.float-right(href="#" title="Komentarze")
+                    span.icon--chat.article__comment-icon
+                    strong 48
+                ul.article__details.list--reset
+                  li.list__item
+                    strong dodano&nbsp;
+                    time( datetime="<?php echo get_the_date(); ?>" )
+                      strong
+                        +phpEcho( "get_the_date()" )
+                  li.list__item
+                    +phpIf( "$post_tags = get_the_tags()" )
+                      +phpForeach("$post_tags as $tag")
+                        a(href!="<?php echo get_tag_link($tag->term_id); ?>" title!="<?php echo $tag->name; ?>")
+                          strong
+                            +php("$tag_name = $tag->name . ' '")
+                            +phpEcho("$tag_name")
+                a.article__anchor( href!="<?php echo get_permalink(); ?>" title!="<?php the_title(); ?>" )
+                  .article__title.text--featured.text--300
+                    +php( "the_title()" )
+                p.article__excerpt
+                  +php( "the_excerpt()" )
+            +php("wp_reset_postdata()")
+
+    .columns.xxlarge-1.section__divider.show-for-xxlarge(data-margin="1")
+
+    .
+      <?php
+
+      $args = array(
+      'posts_per_page'    =>  2,
+      'offset'    =>  3,
+      );
+
+      $the_query = new WP_Query( $args );
+
+      ?>
+
+    +phpIf( "$the_query->have_posts()" )
+
+      .columns.xxlarge-8.xlarge-24
+        .container-articles--horizontal
+          +phpWhile( "$the_query->have_posts()" )
+            +php( "$the_query->the_post()" )
+            .columns.xxlarge-24.large-12
+
+              article.article.article--horizontal.margin--medium-tiny-bottom.margin--small-small-bottom
+                +phpIf( "get_the_post_thumbnail()" )
+                  a.article__image-container.article__anchor( href!="<?php echo get_permalink(); ?>" title!="<?php the_title(); ?>")
+                    img.article__image( src!="<?php echo get_the_post_thumbnail_url(); ?>" alt!="<?php the_title(); ?>" )
+                section.article__body
+                  .article__share
+                    +php( "the_share_buttons()" )
+                    a.article__comment.float-right(href="#" title="Komentarze")
+                      span.icon--chat.article__comment-icon
+                      strong 48
+                  ul.article__details.list--reset
+                    li.list__item
+                      strong dodano&nbsp;
+                      time( datetime="<?php echo get_the_date(); ?>" )
+                        strong
+                          +phpEcho( "get_the_date()" )
+                    li.list__item
+                      +phpIf( "$post_tags = get_the_tags()" )
+                        +phpForeach("$post_tags as $tag")
+                          a(href!="<?php echo get_tag_link($tag->term_id); ?>" title!="<?php echo $tag->name; ?>")
+                            strong
+                              +php("$tag_name = $tag->name . ' '")
+                              +phpEcho("$tag_name")
+                  a.article__anchor( href!="<?php echo get_permalink(); ?>" title!="<?php the_title(); ?>" )
+                    .article__title.text--featured.text--300
+                      +php( "the_title()" )
+                  p.article__excerpt
+                    +php( "the_excerpt()" )
+                  +php("wp_reset_postdata()")
+

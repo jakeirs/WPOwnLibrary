@@ -1,0 +1,45 @@
+include ../../../node_modules/sequencesh-platform-assets-base/platform/_mixins
+
+//- PHP MIXINS
+mixin php(string)
+  | <?php #{string}; ?>
+
+mixin phpForeach(condition)
+  | <?php foreach (#{condition}): ?>
+  if block
+    block
+  | <?php endforeach; ?>
+
+mixin phpFor(condition)
+  | <?php for (#{condition}): ?>
+  if block
+    block
+  | <?php endfor; ?>
+
+mixin phpWhile(condition)
+  | <?php while(#{condition}): ?>
+  if block
+    block
+  | <?php endwhile; ?>
+
+mixin phpEcho(echo)
+  | <?php echo #{echo}; ?>
+
+mixin phpIf(condition)
+  | <?php if (#{condition}): ?>
+  if block
+    block
+  | <?php endif; ?>
+
+mixin phpElse()
+  | <?php else: ?>
+  if block
+    block
+
+mixin phpElseIf(condition)
+  | <?php elseif (#{condition}): ?>
+  if block
+    block
+
+mixin phpIfEcho(condition, echo)
+  | <?php if (#{condition}) { echo '#{echo}'; } ?>

@@ -1,0 +1,119 @@
+include ../views/pug/_mixins
+
+header.position--small-viewport
+
+  #bar-top.bar.padding--default
+    .bar__row--flex.position--relative
+
+      .bar__left--flex.text-center
+        a.float-left.bar__brand(href!="<?php echo( get_home_url() ); ?>" title="Strona główna")
+          img.bar__logo(src!="<?php echo get_bloginfo('template_directory'); ?>/assets/images/sequencesh_logo_2.jpg" alt="Alternative text")
+
+      .bar__center--flex.text-center
+
+        nav.nav.nav--inline.padding--small-tiny-right#nav-main(data-toggler="is-active" role="navigation")
+          .
+            <?php
+            wp_nav_menu(array(
+            'theme_location'     => 'primary-menu',
+            'container'          =>  false,
+            'menu_class'         =>  'nav__list menu',
+            'walker'             =>  new SSH_Walker_Nav_Menu_Primary()
+            ));
+            ?>
+
+        nav.nav.nav--inline.padding--small-tiny-right#nav-main-hamburger(data-toggler="is-active" role="navigation")
+          .
+            <?php
+            wp_nav_menu(array(
+            'theme_location'     => 'primary-menu',
+            'container'          =>  false,
+            'menu_class'         =>  'nav__list menu nav__list--hamburger padding--default menu--scrollable',
+            'walker'             =>  new SSH_Walker_Nav_Menu_Primary()
+            ));
+            ?>
+
+        button.hamburger.hamburger--collapse.hide-for-large.toggler#hamburger(type="button" data-toggle="hamburger nav-main-hamburger" data-toggler="is-active")
+          span.hamburger-box
+            span.hamburger-inner
+
+
+      .bar__right--flex.bar__right--media.position--relative
+        ul.bar__right--flex__list.list--reset.list--inline.list--margin-large
+          li.list__item.bar__right--flex__social-media
+            ul.list--social-media.list--reset.list--inline.list--margin-tiny
+              +phpIf( "get_option('facebook')" )
+                li.list__item
+                  a(href!="<?php echo get_option('facebook'); ?>"  title="Facebook" target="_blank")
+                    span.icon--facebook-logo-monochrome.icon--default.icon--color-facebook
+              +phpIf( "get_option('twitter')" )
+                li.list__item
+                  a(href!="<?php echo get_option('twitter'); ?>" title="Twitter" target="_blank")
+                    span.icon--twitter-logo-monochrome.icon--default.icon--color-twitter
+              +phpIf( "get_option('google_plus')" )
+                li.list__item
+                  a(href!="<?php echo get_option('google_plus'); ?>" title="Google+" target="_blank")
+                    span.icon--googleplus-logo-monochrome.icon--default.icon--color-google-plus
+              +phpIf( "get_option('linkedIn')" )
+                li.list__item
+                  a(href!="<?php echo get_option('linkedIn'); ?>" title="LinkedIn" target="_blank")
+                    span.icon--linkedin-logo-monochrome.icon--default.icon--color-linkedin
+          li.list__item.bar__right--flex__search-bar
+            +php("get_search_form()")
+
+  +php(" wp_reset_postdata() ")
+  .
+    <?php
+    $args = array(
+    'post_type' => 'home_page_content',
+    'posts_per_page'    => 1,
+    );
+
+    $the_query = new WP_Query( $args );
+    //var_dump( $the_query);
+    //$the_query->the_post();
+
+    ?>
+
+  +php( "$the_query->the_post()" )
+
+  +pageHeader({
+      bgSrc: "<?php echo get_template_directory_uri() . '/assets/images/bg.png' ?>"
+  }).page-header--adjusted.page-header--nav.jarallax
+    .header--large.text--serif.text--900.text--white RODO 2018
+    .header.header--medium.text--300.padding--small-tiny-top Rozporządzenie </br> o Ochronie Danych Osobowych
+    .svg-front__container
+      .svg-front__item--1.svg-front__item--appdev
+        include ../assets/images/svg-front/appdev.svg
+      .svg-front__item--2.svg-front__item--ecomerce
+        include ../assets/images/svg-front/ecomerce.svg
+      .svg-front__item--3.svg-front__item--emailmarketing
+        include ../assets/images/svg-front/emailmarketing.svg
+      .svg-front__item--4.svg-front__item--freelance
+        include ../assets/images/svg-front/freelance.svg
+      .svg-front__item--5.svg-front__item--management
+        include ../assets/images/svg-front/management.svg
+      .svg-front__item--6.svg-front__item--market
+        include ../assets/images/svg-front/market.svg
+      .svg-front__item--7.svg-front__item--marketing
+        include ../assets/images/svg-front/marketing.svg
+      .svg-front__item--8.svg-front__item--newsletter
+        include ../assets/images/svg-front/newsletter.svg
+      .svg-front__item--9.svg-front__item--typography
+        include ../assets/images/svg-front/typography.svg
+    .buttons-container.margin--small-small-top
+      .column--button
+        +button({
+            style: 'primary',
+            title: 'Dowiedz się więcej',
+            label: 'Dowiedz się więcej',
+            rounded: true,
+            href: '#to-awesome',
+        }).pink
+      //.column--button.margin--medium-default-bottom-down.pink
+      //  +button({
+      //      style: 'transparent',
+      //      title: 'Kup teraz',
+      //      label: 'Kup teraz',
+      //      rounded: true
+      //  }).hollow-border.margin--medium-small-left.margin--small-tiny-left

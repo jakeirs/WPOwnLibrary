@@ -1,0 +1,27 @@
+include ../../views/pug/_mixins
+
+.
+  <?php
+
+  $args = array(
+  'post_type' => 'mockup_popup',
+  'posts_per_page'    => $post_per_page_value = 3,
+  );
+
+  $the_query = new WP_Query( $args );
+  ?>
+
++phpIf( "$the_query->have_posts()" )
+  .mockup-popup__container
+    .carousel.carousel--mockup#carousel--mockup
+      +phpWhile( "$the_query->have_posts()" )
+        +php( "$the_query->the_post()" )
+        .carousel__item--mockup
+          +pageHeader({
+              bgSrc: "<?php echo get_field( 'fifth_slider_background' )['url']; ?>"
+          }).page-header--adjusted
+            .wrapper-text--mockup
+              .header.header--medium.text--900
+                +php( " the_field( 'fifth_slider_header' ) " )
+              .text--featured.text--grey.margin--small-default-top
+                +php( " the_field( 'fifth_slider_feature_text' ) " )

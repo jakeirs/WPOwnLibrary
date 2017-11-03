@@ -1,0 +1,142 @@
+/**
+  .svg-front
+ */
+@for $i from 1 through 9 {
+  $animationTime: (3 + $i / 10);
+  $positionAbs: percentage($i / 10);
+  
+  .svg-front__item--#{$i} {
+    //margin: -200px 0 0 -100px;
+    svg {
+      animation: float #{$animationTime}s ease-in-out infinite;
+      top: 0;
+      right: 0;
+    }
+  }
+}
+
+$moveTowardTop: 50px;
+$breakpointHuge: 1700px;
+
+.svg-front {
+  &__container {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: -50%;
+    left: 0;
+    transform: scale(0.9);
+    transform-origin: 100% 10%;
+    @include breakpoint($breakpointHuge down) {
+      transform-origin: 200% 10%;
+    }
+    @include breakpoint(large down) {
+      transform-origin: unset;
+      transform: translateX(20%) translateY(-20%) scale(0.8);
+    }
+    @include breakpoint(medium down) {
+      transform-origin: 100% 100%;
+      transform: translateX(20%) translateY(-20%) scale(0.8);
+    }
+    @include breakpoint(small down) {
+      //transform-origin: unset;
+      //transform: translateX(50%) translateY(-20%) scale(0.5);
+    }
+    
+    
+    svg {
+      height: 140px;
+      position: absolute;
+  
+      @include breakpoint(xlarge down) {
+        fill-opacity: 0.65;
+      }
+      @include breakpoint(medium down) {
+        fill-opacity: 0.35;
+      }
+    }
+  }
+  
+  &__item {
+    &--appdev {
+      svg {
+        height: 230px;
+        top: 120px;
+        right: 200px;
+        z-index: 10;
+      }
+    }
+    &--ecomerce {
+      svg {
+        height: 290px;
+        top: 50px;
+        right: 540px;
+        z-index: 10;
+      }
+    }
+    &--emailmarketing {
+      svg {
+        top: 200px;
+        right: 760px;
+        z-index: 10;
+      }
+    }
+    &--freelance {
+      svg {
+        height: 100px;
+        top: 100px;
+        right: 445px;
+        z-index: 10;
+      }
+    }
+    &--management {
+      svg {
+        height: 354px;
+        top: 200px;
+        right: 550px;
+      }
+    }
+    &--market {
+      svg {
+        height: 200px;
+        top: 300px;
+        right: 425px;
+      }
+    }
+    &--marketing {
+      svg {
+        height: 333px;
+        top: 280px;
+        right: 230px;
+      }
+    }
+    &--newsletter {
+      svg {
+        height: 170px;
+        top: 110px;
+        right: 400px;
+      }
+    }
+    &--typography {
+      svg {
+        //
+        height: 120px;
+        top: 230px;
+        right: 485px
+      }
+    }
+  }
+}
+
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}

@@ -1,0 +1,13 @@
+include ../views/pug/_mixins
+
+doctype html
+
+html.no-js
+  head
+    include head.pug
+  body
+    include header.pug
+
+    +php("get_template_part('main')")
+
+    +php("get_footer()")

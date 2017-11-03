@@ -1,0 +1,310 @@
+include pug/_mixins
+
+section#second-section.padding--small-huge-top.padding--small-huge-bottom
+  .row.expanded.text--center
+    .header--medium.text--300.text--center Awesome Features
+    .margin--small-large-bottom
+      .row.expanded.margin--small-large-top
+        .columns.large-8
+          .offer-card.margin--small-default-bottom
+            .offer-card__picture.margin--small-small-bottom
+              img( src!="./../assets/images/feature_img_01.PNG" alt="" title="" )
+            .offer-card__title.text--900.padding--small-tiny-top We do this
+            .offer-card__feature-text.padding--small-small-top Nam a sem porttitor, rhoncus eros quis, blandit nulla. Phasellus finibus, neque eu dapibus bibendum, velit erat dictum lacus, sit amet blandit nisl purus at ligula.
+        .columns.large-8
+          .offer-card.margin--small-default-bottom
+            .offer-card__picture.margin--small-small-bottom
+              img( src!="./../assets/images/feature_img_file.PNG" alt="" title="" )
+            .offer-card__title.text--900.padding--small-tiny-top And that
+            .offer-card__feature-text.padding--small-small-top Nam a sem porttitor, rhoncus eros quis, blandit nulla. Phasellus finibus, neque eu dapibus bibendum, velit erat dictum lacus, sit amet blandit nisl purus at ligula.
+        .columns.large-8
+          .offer-card.margin--small-default-bottom
+            .offer-card__picture.margin--small-small-bottom
+              img( src!="./../assets/images/feature_img_bulb.PNG" alt="" title="" )
+            .offer-card__title.text--900.padding--small-tiny-top And that too
+            .offer-card__feature-text.padding--small-small-top Nam a sem porttitor, rhoncus eros quis, blandit nulla. Phasellus finibus, neque eu dapibus bibendum, velit erat dictum lacus, sit amet blandit nisl purus at ligula.
+
+      .row.expanded.padding--small-huge-top#slide-container.hide--initially
+        .columns.large-8
+          .offer-card.margin--small-default-bottom
+            .offer-card__picture.margin--small-small-bottom
+              img( src!="./../assets/images/feature_img_file.PNG" alt="" title="" )
+            .offer-card__title.text--900.padding--small-tiny-top We do this
+            .offer-card__feature-text.padding--small-small-top Nam a sem porttitor, rhoncus eros quis, blandit nulla. Phasellus finibus, neque eu dapibus bibendum, velit erat dictum lacus, sit amet blandit nisl purus at ligula.
+        .columns.large-8
+          .offer-card.margin--small-default-bottom
+            .offer-card__picture.margin--small-small-bottom
+              img( src!="./../assets/images/feature_img_bulb.PNG" alt="" title="" )
+            .offer-card__title.text--900.padding--small-tiny-top And that
+            .offer-card__feature-text.padding--small-small-top Nam a sem porttitor, rhoncus eros quis, blandit nulla. Phasellus finibus, neque eu dapibus bibendum, velit erat dictum lacus, sit amet blandit nisl purus at ligula.
+        .columns.large-8
+          .offer-card.margin--small-default-bottom
+            .offer-card__picture.margin--small-small-bottom
+              img( src!="./../assets/images/feature_img_01.PNG" alt="" title="" )
+            .offer-card__title.text--900.padding--small-tiny-top And that too
+            .offer-card__feature-text.padding--small-small-top Nam a sem porttitor, rhoncus eros quis, blandit nulla. Phasellus finibus, neque eu dapibus bibendum, velit erat dictum lacus, sit amet blandit nisl purus at ligula.
+
+    +button({
+        title: 'More',
+        label: 'More',
+        rounded: true
+    })#slide-activator
+
+section.section--padding.position--relative
+  .flex.flex--section-feature.flex--featured
+    .columns.large-10.flex.flex--center-vertically.padding--small
+      .feature__description
+        .header--medium.text--300 Medium <br/> header
+        .text--featured.margin--small-default-top Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pharetra nisi ut porta pretium. Vestibulum ligula diam, maximus ut lacus et, ultrices aliquet urna. Phasellus laoreet aliquet justo. Donec non ullamcorper sapien, quis tempor mi. Duis fermentum et sem elementum cursus. Ut accumsan, ante sit amet bibendum tincidunt, urna lacus dignissim neque, at hendrerit lacus lorem eget est. Morbi ac.
+        +button({
+            style: 'primary',
+            title: 'Więcej',
+            label: 'Więcej',
+            rounded: true
+        }).margin--small-small-top#mockup-button
+    .columns.large-14.padding--small.flex.flex--center-vertically
+      img.feature__img( src!="./../assets/images/feature_medium_stats.jpg" alt="" title="")
+
+
+section.section--team.text--center.position--relative
+  .row.row--wrapper
+    .header--small.text--900.text--center Meet the team
+    p.text--leading.margin--small-small-top  Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Vestibulum interdum orci sed tellus pulvinar, at luctus orci accumsan. Praesent ac tristique lacus.
+
+  .carousel--container.margin--small-large-top.position--relative
+    span.icon--keyboard-arrow-left#prev
+    .carousel.carousel--team#carousel--team
+      .carousel__item
+        img.carousel__img( src!="/assets/images/team-member-1.jpg" )
+        .carousel__title(title="Mihau Biauek") Mihau Biauek
+        .carousel__subtitle(title="CEO") CEO
+        .carousel__media
+          ul.list.list--reset.list--inline.list--margin
+            li.list__item.list__item--media-carousel
+              a(href="#" title="Facebook" target="_blank")
+                span.icon--facebook-logo-monochrome.icon--default.icon--color-facebook
+            li.list__item.list__item--media-carousel
+              a(href="#" title="Twitter")
+                span.icon--twitter-logo-monochrome.icon--default.icon--color-twitter
+            li.list__item.list__item--media-carousel
+              a(href="#" title="LinkedIn")
+                span.icon--linkedin-logo-monochrome.icon--default.icon--color-linkedin
+      .carousel__item
+        img.carousel__img( src!="/assets/images/team-member-2.jpg" )
+        .carousel__title(title="Ziutekk") Ziutek
+        .carousel__subtitle(title="CTO") CTO
+        .carousel__media
+          ul.list.list--reset.list--inline.list--margin
+            li.list__item.list__item--media-carousel
+              a(href="#faceface" title="Facebook" target="_blank")
+                span.icon--facebook-logo-monochrome.icon--default.icon--color-facebook
+            li.list__item.list__item--media-carousel
+              a(href="#twitiwit" title="Twitter")
+                span.icon--twitter-logo-monochrome.icon--default.icon--color-twitter
+            li.list__item.list__item--media-carousel
+              a(href="#linnili" title="LinkedIn")
+                span.icon--linkedin-logo-monochrome.icon--default.icon--color-linkedin
+      .carousel__item
+        img.carousel__img( src!="/assets/images/team-member-3.jpg" )
+        .carousel__title(title="Mihau Biauek") Mihau Biauek
+        .carousel__subtitle(title="CEO") CEO
+        .carousel__media
+          ul.list.list--reset.list--inline.list--margin
+            li.list__item.list__item--media-carousel
+              a(href="#" title="Facebook" target="_blank")
+                span.icon--facebook-logo-monochrome.icon--default.icon--color-facebook
+            li.list__item.list__item--media-carousel
+              a(href="#" title="Twitter")
+                span.icon--twitter-logo-monochrome.icon--default.icon--color-twitter
+            li.list__item.list__item--media-carousel
+              a(href="#" title="LinkedIn")
+                span.icon--linkedin-logo-monochrome.icon--default.icon--color-linkedin
+      .carousel__item
+        img.carousel__img( src!="/assets/images/team-member-4.jpg" )
+        .carousel__title(title="Mihau Biauek") Mihau Biauek
+        .carousel__subtitle(title="CEO") CEO
+        .carousel__media
+          ul.list.list--reset.list--inline.list--margin
+            li.list__item.list__item--media-carousel
+              a(href="#" title="Facebook" target="_blank")
+                span.icon--facebook-logo-monochrome.icon--default.icon--color-facebook
+            li.list__item.list__item--media-carousel
+              a(href="#" title="Twitter")
+                span.icon--twitter-logo-monochrome.icon--default.icon--color-twitter
+            li.list__item.list__item--media-carousel
+              a(href="#" title="LinkedIn")
+                span.icon--linkedin-logo-monochrome.icon--default.icon--color-linkedin
+      .carousel__item
+        img.carousel__img( src!="/assets/images/team-member-5.jpg" )
+        .carousel__title(title="Mihau Biauek") Mihau Biauek
+        .carousel__subtitle(title="CEO") CEO
+        .carousel__media
+          ul.list.list--reset.list--inline.list--margin
+            li.list__item.list__item--media-carousel
+              a(href="#" title="Facebook" target="_blank")
+                span.icon--facebook-logo-monochrome.icon--default.icon--color-facebook
+            li.list__item.list__item--media-carousel
+              a(href="#" title="Twitter")
+                span.icon--twitter-logo-monochrome.icon--default.icon--color-twitter
+            li.list__item.list__item--media-carousel
+              a(href="#" title="LinkedIn")
+                span.icon--linkedin-logo-monochrome.icon--default.icon--color-linkedin
+      .carousel__item
+        img.carousel__img( src!="/assets/images/team-member-3.jpg" )
+        .carousel__title(title="Mihau Biauek") Mihau Biauek
+        .carousel__subtitle(title="CEO") CEO
+        .carousel__media
+          ul.list.list--reset.list--inline.list--margin
+            li.list__item.list__item--media-carousel
+              a(href="#" title="Facebook" target="_blank")
+                span.icon--facebook-logo-monochrome.icon--default.icon--color-facebook
+            li.list__item.list__item--media-carousel
+              a(href="#" title="Twitter")
+                span.icon--twitter-logo-monochrome.icon--default.icon--color-twitter
+            li.list__item.list__item--media-carousel
+              a(href="#" title="LinkedIn")
+                span.icon--linkedin-logo-monochrome.icon--default.icon--color-linkedin
+      .carousel__item
+        img.carousel__img( src!="/assets/images/team-member-4.jpg" )
+        .carousel__title(title="Mihau Biauek") Mihau Biauek
+        .carousel__subtitle(title="CEO") CEO
+        .carousel__media
+          ul.list.list--reset.list--inline.list--margin
+            li.list__item.list__item--media-carousel
+              a(href="#" title="Facebook" target="_blank")
+                span.icon--facebook-logo-monochrome.icon--default.icon--color-facebook
+            li.list__item.list__item--media-carousel
+              a(href="#" title="Twitter")
+                span.icon--twitter-logo-monochrome.icon--default.icon--color-twitter
+            li.list__item.list__item--media-carousel
+              a(href="#" title="LinkedIn")
+                span.icon--linkedin-logo-monochrome.icon--default.icon--color-linkedin
+    span.icon--keyboard-arrow-right#next
+  //include ./teamPopup
+
+section.section--blog
+  .row.row--wrapper
+    .header--medium.text--300.text--center Check out Our blog
+    p.text--leading.margin--small-small-top  Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Vestibulum interdum orci sed tellus pulvinar, at luctus orci accumsan. Praesent ac tristique lacus. Vivamus eleifend venenatis felis eu suscipit. Pellentesque auctor urna nunc, ac feugiat quam mattis rhoncus.
+  .row.expanded.padding--small-huge-top
+    .columns.xxlarge-15.xlarge-24
+      .columns.medium-8
+        +article({
+            href: '#',
+            title: 'Dziesięć powodów dla których powinienieś używać porównywarki walut',
+            date: '03-05-2016',
+            imageSrc: 'assets/images/blog-image-1.png',
+            facebookUrl: '#',
+            twitterUrl: '#',
+            googleplusUrl: '#',
+            linkedinUrl: '#',
+            commentUrl: '#',
+            commentCount: 48,
+            tags: [
+                {
+                    href: '#',
+                    title: 'porównywarki'
+                },
+                {
+                    href: '#',
+                    title: 'finanse'
+                },
+                {
+                    href: '#',
+                    title: 'aktualności'
+                },
+                {
+                    href: '#',
+                    title: 'ogłoszenia'
+                }
+            ]
+        }).margin--small-default-bottom-down
+          | Suspendisse porta ullamcorper posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse laoreet ultricies felis, sed tincidunt neque sagittis in. Integer sit amet libero euismod, imperdiet orci sed, mollis neque. Suspendisse porta ullamcorper posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse laoreet ultricies felis, sed tincidunt neque sagittis in. Integer sit amet libero euismod, imperdiet orci sed, mollis neque.
+      .columns.medium-8
+        +article({
+            href: '#',
+            title: 'Dziesięć powodów dla których powinienieś używać porównywarki walut',
+            date: '03-05-2016',
+            imageSrc: 'assets/images/blog-image-2.png',
+            facebookUrl: '#',
+            twitterUrl: '#',
+            googleplusUrl: '#',
+            linkedinUrl: '#',
+            commentUrl: '#',
+            commentCount: 48,
+            tags: [
+                {
+                    href: '#',
+                    title: 'porównywarki'
+                },
+                {
+                    href: '#',
+                    title: 'finanse'
+                },
+                {
+                    href: '#',
+                    title: 'aktualności'
+                },
+                {
+                    href: '#',
+                    title: 'ogłoszenia'
+                }
+            ]
+        }).margin--small-default-bottom-down
+          | Suspendisse porta ullamcorper posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse laoreet ultricies felis, sed tincidunt neque sagittis in. Integer sit amet libero euismod, imperdiet orci sed, mollis neque. Suspendisse porta ullamcorper posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse laoreet ultricies felis, sed tincidunt neque sagittis in. Integer sit amet libero euismod, imperdiet orci sed, mollis neque.
+      .columns.medium-8
+        +article({
+            href: '#',
+            title: 'Dziesięć powodów dla których powinienieś używać porównywarki walut',
+            date: '03-05-2016',
+            imageSrc: 'assets/images/blog-image-3.png',
+            facebookUrl: '#',
+            twitterUrl: '#',
+            googleplusUrl: '#',
+            linkedinUrl: '#',
+            commentUrl: '#',
+            commentCount: 48,
+            tags: [
+                {
+                    href: '#',
+                    title: 'porównywarki'
+                },
+                {
+                    href: '#',
+                    title: 'finanse'
+                },
+                {
+                    href: '#',
+                    title: 'aktualności'
+                },
+                {
+                    href: '#',
+                    title: 'ogłoszenia'
+                }
+            ]
+        }).margin--small-default-bottom-down
+          | Suspendisse porta ullamcorper posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse laoreet ultricies felis, sed tincidunt neque sagittis in. Integer sit amet libero euismod, imperdiet orci sed, mollis neque. Suspendisse porta ullamcorper posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse laoreet ultricies felis, sed tincidunt neque sagittis in. Integer sit amet libero euismod, imperdiet orci sed, mollis neque.
+    .columns.xxlarge-1.section__divider.show-for-xxlarge(data-margin="1")
+
+    .columns.xxlarge-8.xlarge-24
+      .container-articles--horizontal
+        .columns.xxlarge-24.large-12
+          +article({
+              horizontal: true,
+              href: '#',
+              title: 'Dziesięć powodów dla których powinienieś używać porównywarki walut',
+              date: '03-05-2016',
+              imageSrc: 'assets/images/blog-image-4.png',
+              moreBtn: true,
+          }).margin--medium-tiny-bottom.margin--small-small-bottom
+            | Suspendisse porta ullamcorper posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse laoreet ultricies felis, sed tincidunt neque sagittis in.
+        .columns.xxlarge-24.large-12
+          +article({
+              horizontal: true,
+              href: '#',
+              title: 'Dziesięć powodów dla których powinienieś używać porównywarki walut',
+              date: '03-05-2016',
+              imageSrc: 'assets/images/blog-image-5.png',
+              moreBtn: true,
+          }).margin--medium-tiny-bottom.margin--small-tiny-bottom
+            | Suspendisse porta ullamcorper posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse laoreet ultricies felis, sed tincidunt neque sagittis in.

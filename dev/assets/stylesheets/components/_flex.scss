@@ -1,0 +1,38 @@
+.flex {
+  flex-wrap: wrap;
+  display: flex;
+  
+  &--center-vertically {
+    align-items: center;
+  }
+  
+  .columns,
+  .column {
+    display: flex;
+  }
+}
+
+.flex--featured {
+  flex-wrap: nowrap;
+  overflow: hidden;
+
+    .columns:first-child {
+      min-width: 650px;
+      @include breakpoint(medium down) {
+        min-width: unset;
+      }
+    }
+  
+    .columns:nth-child(2) {
+
+      @include breakpoint(medium down) {
+        display: none;
+      }
+    }
+  
+  
+  @include breakpoint(small down) {
+    text-align: center;
+  }
+}
+

@@ -1,0 +1,45 @@
+include ../views/pug/_mixins
+
+footer.footer.text--nav-color
+  .bar__row.wrapper--footer
+
+    .bar__left.bar__left--footer.padding--large-small-left
+      nav.nav.nav--inline.padding--small-tiny-right#nav-main( role="navigation" )
+        .
+          <?php
+            wp_nav_menu(array(
+              'theme_location'     => 'secondary-menu',
+              'container'          =>  false,
+              'menu_class'         =>  'nav__list menu',
+              'walker'             =>  new SSH_Walker_Nav_Menu_Primary()
+            ));
+          ?>
+
+    .bar__right.bar__right--footer.padding--large-small-right
+      ul.list--reset.list--inline.list--margin-tiny
+        ul.list--reset.list--inline.list--margin-tiny
+          +phpIf( "get_option('facebook')" )
+            li.list__item
+              a(href!="<?php echo get_option('facebook'); ?>"  title="Facebook" target="_blank")
+                figure.icon--facebook
+                  include ../assets/images/social-icons/facebook-logo-square.svg
+        li.list__item.text--nav-color.padding--medium-small-left.padding--small-tiny-left
+          .
+            <?php
+              $args = array(
+                'post_type' => 'home_page_content',
+                'posts_per_page'    => 1,
+              );
+              $the_query = new WP_Query( $args );
+            ?>
+          span
+          +php( "$the_query->the_post()" )
+          +php( "the_field( 'footer_text' )" )
+  .theme-switcha.shadow--far-hover.shadow--close
+    .theme-switcha__heading
+      .theme-switcha__title Wybierz&nbsp;motyw
+      .theme-switcha__icon-container
+        span.icon--settings-outline-light
+    +php( "echo theme_switcha_display_list( 'list' )" )
+
++php( "wp_footer()" )

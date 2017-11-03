@@ -1,0 +1,22 @@
+include ../views/pug/_mixins
+
+form.form.form--inline(
+  role="search"
+  name="search"
+  id="search"
+  method="get"
+  action!="<?php echo home_url( '/' ); ?>"
+  )
+  fieldset.form__content
+    .row.form__row
+      .form__group
+        label.label.label--collapse.label--icon-white(for="s" )
+          button.icon--search.icon--small.icon--right.icon--padding-right(type="submit" name="action")
+          input.input--border.input--rounded.input--default.input--transparent.text--white.input--text-white.no-margin(
+          type="search"
+          name="s"
+          id="s"
+          title="s"
+          placeholder="Szukaj.."
+          value!="<?php echo get_search_query() ?>"
+          )

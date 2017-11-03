@@ -1,0 +1,61 @@
+.page-header {
+
+  &--adjusted {
+
+    padding-top: 0;
+    padding-bottom: 0;
+    padding: 0 30px;
+
+    @include breakpoint(medium down) {
+      height: inherit;
+      min-height: 100vh;
+      line-height: 100vh;
+      text-align: center;
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+  }
+
+  &--nav {
+    height: calc(100vh - 138px);
+    line-height: calc(100vh - 138px);
+  
+    @include breakpoint(xlarge down) {
+      height: calc(100vh - 145px);
+      line-height: calc(100vh - 145px);
+    }
+  
+    @include breakpoint(medium down) {
+      min-height: calc(100vh - 130px);
+      line-height: calc(100vh - 130px);
+    }
+  
+    @include breakpoint(small down) {
+      min-height: calc(100vh - 170px);
+      line-height: calc(100vh - 170px);
+    }
+  }
+
+  &--viewport > * {
+    line-height: initial!important;
+  }
+  
+  &__content {
+    
+    .row {
+      max-width: rem-calc(1500px);
+    }
+    .header--large {
+      position: relative;
+      z-index: 100;
+    }
+    .header--medium {
+      position: relative;
+      z-index: 100;
+    }
+    .buttons-container {
+      position: relative;
+      z-index: 100;
+    }
+  }
+}

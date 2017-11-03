@@ -1,0 +1,43 @@
+include pug/_mixins
+footer.footer.text--nav-color
+  .bar__row.wrapper--footer
+
+    .bar__left.bar__left--footer.padding--large-small-left
+      +nav({
+          inline: true,
+          subMenuArrow: true
+      }, [
+          {
+              href: '#',
+              label: 'Menu Item 01'
+          },
+          {
+              href: '#',
+              label: 'Menu Item 02'
+          },
+          {
+              href: '#',
+              label: 'Menu Item 03'
+          },
+          {
+              href: '#',
+              label: 'Menu Item 04'
+          },
+          {
+              href: '#',
+              label: 'Menu Item 05'
+          }
+      ])
+
+    .bar__right.bar__right--footer.padding--large-small-right
+      ul.list--reset.list--inline.list--margin-tiny
+        ul.list--reset.list--inline.list--margin-tiny
+          li.list__item
+            a(href="#" title="Facebook" target="_blank")
+              figure.icon--facebook
+                include ../assets/images/social-icons/facebook-logo-square.svg
+        li.list__item.text--nav-color.padding--medium-small-left.padding--small-tiny-left
+          span Copyright Brzęszczyszczykiewicz 2017
+
+script(src="assets/javascript/platform/platform.js")
+script(async="async" src="assets/javascript/app.js")
