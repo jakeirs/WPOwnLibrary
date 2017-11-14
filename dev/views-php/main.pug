@@ -3,6 +3,8 @@ include ../views/pug/_mixins
 section.section--offers.text--center#to-awesome
   .row.expanded.text--center
     .header--medium.text--300.text--center
+      +php( "$page = get_page_by_path( 'projektowanie-elektryczne' )" )
+      +php( "the_field( 'home-page__leading-text', $page->ID )" ) // $page->ID
       +php( "the_field( 'features_header' )" )
     .margin--medium-default-bottom.margin--small-tiny-bottom-down
       .
